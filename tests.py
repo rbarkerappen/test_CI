@@ -18,6 +18,7 @@ class TestCases(unittest.TestCase):
 	def test_multiply(self):
 		assert multiply(4,5) == 20
 		assert multiply(2,8) == 16
+		assert multiply(3,4) == 13
 
 	def test_divide(self):
 		assert divide(10,2) == 5
