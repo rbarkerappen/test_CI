@@ -88,3 +88,13 @@ class TestEndPoints(unittest.TestCase):
 
 		expected = [project1.serialise(), project2.serialise()]
 		self.assertEqual(expected, result)
+
+	def test_key(self):
+		rv = self.test_client.get("/api/v1/key")
+		self.assertEqual(rv.status_code, 200)
+		self.assertEqual(rv.mimetype, "application/json")
+		response_data = json.loads(rv.get_data().decode())
+		self.assertIsInstance(response_data, dict)
+		self.assertIn("key", response_data)
+		key = response_data["key"]
+		self.assertEqual(key, "hello")
