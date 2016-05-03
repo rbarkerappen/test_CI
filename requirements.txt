@@ -1,10 +1,15 @@
+Authomatic==0.1.0.post1
 Flask==0.10.1
 Flask-Script==2.0.5
 Flask-SQLAlchemy==2.1
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
+numpy==1.11.0
 psycopg2==2.6.1
+requests==2.10.0
+simplejson==3.8.2
 SQLAlchemy==1.0.12
 Werkzeug==0.11.9
 wheel==0.24.0
+git+ssh://git@github.com/Appen/lr_utilities.git@2016.4.22.3.40

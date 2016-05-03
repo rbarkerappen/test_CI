@@ -1,6 +1,7 @@
 from flask import Blueprint, current_app, jsonify, request
 
 from lib import add, subtract, multiply, divide
+from lr_utilities.WebApp import AppenNextAPI
 from model import Project, Status
 
 
@@ -46,3 +47,8 @@ def get_projects():
 @bp.route("/key", methods=["GET"])
 def get_environ_key():
 	return jsonify(key=current_app.config["ENVIRON_KEY"])
+
+
+@bp.route("/utilities", methods=["GET"])
+def get_utilities():
+	return jsonify(url=AppenNextAPI.STATUS_URL)

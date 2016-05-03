@@ -98,3 +98,13 @@ class TestEndPoints(unittest.TestCase):
 		self.assertIn("key", response_data)
 		key = response_data["key"]
 		self.assertEqual(key, "hello")
+
+	def test_utilities(self):
+		rv = self.test_client.get("/api/v1/utilities")
+		self.assertEqual(rv.status_code, 200)
+		self.assertEqual(rv.mimetype, "application/json")
+		response_data = json.loads(rv.get_data().decode())
+		self.assertIsInstance(response_data, dict)
+		self.assertIn("url", response_data)
+		url = response_data["url"]
+		self.assertEqual(url, "https://globalnx-api.appen.com/api/v1/status")
