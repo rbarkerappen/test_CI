@@ -5,6 +5,6 @@ services:
 addons:
   postgresql: "9.4"
 before_script:
-  - ssh github.com
+  - echo "HERE"; ssh github.com
   - psql -c 'create database ci_test_test;' -U postgres
 script: "python manage.py runtests"
