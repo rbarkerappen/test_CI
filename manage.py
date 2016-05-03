@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import sys
 
 from flask.ext.script import Manager
 
@@ -30,6 +31,7 @@ def runtests():
 		db.create_all()
 		seed_db()
 		test_results = unittest.TextTestRunner().run(suite)
+		sys.exit(not test_results.wasSuccessful())
 
 
 @manager.command
