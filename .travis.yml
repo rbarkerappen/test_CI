@@ -4,6 +4,12 @@ services:
   - postgresql
 addons:
   postgresql: "9.4"
+before_install:
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo -e "$GITHUB_PRIVATE_KEY" > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
+  - eval `ssh-agent -s`
+  - ssh-add ~/.ssh/id_rsa
 before_script:
   - echo "HERE"; ssh github.com
   - psql -c 'create database ci_test_test;' -U postgres
