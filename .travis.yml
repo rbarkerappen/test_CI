@@ -12,6 +12,6 @@ before_install:
   - ssh-add ~/.ssh/id_rsa
 before_script:
   - psql -c 'create database ci_test_test;' -U postgres
-script: "python manage.py runtests"
+script: "coverage run --include=api.py,app.py,lib.py manage.py runtests"
 after_success:
   - coveralls
